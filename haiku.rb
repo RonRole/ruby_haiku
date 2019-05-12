@@ -1,23 +1,24 @@
-#! ruby -Ku
-
-puts "please input first column"
+# Your code here!
+#puts "first line..."
 text1 = gets.chomp
-puts "please input second column"
+#puts "second line..."
 text2 = gets.chomp
-puts "please input the last column"
-
+#puts "third line..."
 text3 = gets.chomp
 
-lines = [text1, text2, text3]
+line1 = text1.split("")
+line2 = text2.split("")
+line3 = text3.split("")
 
-max = 0
-lines.each {
-    |line| max = line.length if line.length > max
+max_length = [line1.length, line2.length, line3.length].max
+
+(max_length - line1.length).times {
+    line1 << nil
 }
 
-max.times {
-   |num| lines.reverse.each {
-        |line| print line[num] == nil ? "　" + "　" : line[num] + "　"
+line1.zip(line2,line3).each {
+    |line| line.reverse.each {
+        |element|  print element != nil ? element + "  " : "  " + "  "
     }
     puts ""
 }
